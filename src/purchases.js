@@ -22,9 +22,6 @@ function savePurchasesToFile() {
   fs.writeFileSync(dataFilePath, dataToWrite);
 }
 
-function getPurchases() {
-  return purchases;
-}
 
 function createPurchase(name, amount, donation) {
   const id = nanoid(4);
@@ -33,6 +30,10 @@ function createPurchase(name, amount, donation) {
   purchases.push(purchase);
   savePurchasesToFile();
   return purchase;
+}
+
+function getPurchases() {
+  return purchases;
 }
 
 function listPurchases() {

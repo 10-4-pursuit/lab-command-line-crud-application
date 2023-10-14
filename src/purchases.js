@@ -12,13 +12,14 @@ function loadPurchases() {
   try {
     const data = fs.readFileSync(dataFilePath);
     purchases = JSON.parse(data);
+    console.log(purchases);
   } catch (err) {
     purchases = [];
   }
 }
-
+loadPurchases()
 function savePurchasesToFile() {
-  const dataToWrite = JSON.stringify(purchases, null, 2);
+  const dataToWrite = JSON.stringify(purchases);
   fs.writeFileSync(dataFilePath, dataToWrite);
 }
 
@@ -29,7 +30,7 @@ function createPurchase(name, amount, donation) {
   const purchase = { id, name, amount, donation: roundDonation };
   purchases.push(purchase);
   savePurchasesToFile();
-  return purchase;
+  return purchases;
 }
 
 function getPurchases() {

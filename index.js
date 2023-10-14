@@ -1,4 +1,4 @@
-const { createPurchase, listPurchases, viewPurchase } = require("./src/purchases");
+const { createPurchase, listPurchases, viewPurchase, updatePurchase  } = require("./src/purchases");
 const purchasesAPI = require('./src/purchases');
 function processInput() {
   const expectedCommand = process.argv[2];
@@ -19,7 +19,7 @@ function processInput() {
     result = purchasesAPI.viewPurchase(id)
   }else if (expectedCommand === "update") {
     const id = process.argv[3];
-    const [name, amount, donation] = process.argv.slice(4); // Adjust slice(4) to skip the first 4 arguments
+    const [name, amount, donation] = process.argv.slice(4);
     const parsedAmount = parseFloat(amount);
     const parsedDonation = parseFloat(donation);
 
@@ -47,4 +47,6 @@ module.exports = {
     createPurchase,
     listPurchases,
     viewPurchase,
+    updatePurchase
+    
   };

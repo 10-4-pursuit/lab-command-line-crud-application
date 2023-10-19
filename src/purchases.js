@@ -19,7 +19,7 @@ function loadPurchases() {
 }
 loadPurchases()
 function savePurchasesToFile() {
-  const dataToWrite = JSON.stringify(purchases);
+  const dataToWrite = JSON.stringify(purchases, null, 2);
   fs.writeFileSync(dataFilePath, dataToWrite);
 }
 

@@ -1,8 +1,8 @@
-const { createPurchase, listPurchases, viewPurchase, updatePurchase  } = require("./src/purchases");
 const purchasesAPI = require('./src/purchases');
+
+
 function processInput() {
   const expectedCommand = process.argv[2];
-
   let result = "Error: Command not found";
 
   if (expectedCommand === "create") {
@@ -11,13 +11,12 @@ function processInput() {
     const parsedDonation = parseFloat(donation);
 
     result = purchasesAPI.createPurchase(name, parsedAmount, parsedDonation);
-
   } else if (expectedCommand === "list") {
     result = purchasesAPI.listPurchases();
   } else if (expectedCommand === "view") {
     const id = process.argv[3];
-    result = purchasesAPI.viewPurchase(id)
-  }else if (expectedCommand === "update") {
+    result = purchasesAPI.viewPurchase(id);
+  } else if (expectedCommand === "update") {
     const id = process.argv[3];
     const [name, amount, donation] = process.argv.slice(4);
     const parsedAmount = parseFloat(amount);
@@ -35,18 +34,15 @@ function processInput() {
     } else {
       result = `Error: Purchase with ID ${id} not found.`;
     }
+  } else if (expectedCommand === "calculateTotalDonation") {
+    result =purchasesAPI.calculateTotalDonation()
   }
+
   console.log(result);
 }
 
-processInput()
+processInput();
 
 
 
-module.exports = {
-    createPurchase,
-    listPurchases,
-    viewPurchase,
-    updatePurchase
-    
-  };
+

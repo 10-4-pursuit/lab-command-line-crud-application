@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "create": "node index.js createPurchase",
+    "create": "node index.js create",
     "list": "node index.js listPurchases",
     "view": "node index.js viewPurchase ",
     "update": "node index.js updatePurchase",
-    "delete": "node index.js delete"
+    "delete": "node index.js delete",
+    "calculateTotalDonation": "node index.js calculateTotalDonation"
   },
   "keywords": [],
   "author": "",

@@ -30,6 +30,7 @@ Here is an example of additional styling for the show view
 
 ![Additional styling for the show view](./assets/show-view.png)
 
+
 Include Jest, and write a minimum of two tests. You could:
 
 - Confirm all the correct fields exist when creating a new item.

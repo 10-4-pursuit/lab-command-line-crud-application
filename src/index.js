@@ -15,3 +15,8 @@ function getAllPurchases() {
     return purchases.map((purchase) => ({ id:
     purchase.id, name: purchase.name }))
 }
+
+function getPurchaseById(id) {
+    return purchases.find((purchase) => purchase.id === id)
+}
+

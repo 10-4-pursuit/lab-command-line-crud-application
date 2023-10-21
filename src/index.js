@@ -46,3 +46,11 @@ function calculateTotalDonation() {
     const totalDonation = purchases.reduce(( total, purchase) => total + parseFloat(purchase.donation), 0)
     return totalDonation.toFixed(2)
 }
+
+function displayPurchase(purchase) {
+    inform(chalk.bold("Purchase Details:"))
+    inform(`ID: ${purchase.id}`);
+    inform(`Name: ${purchase.name}`);
+    inform(`Amount: $${purchase.amount}`);
+    inform(`Donation: $${purchase.donation}`);
+}

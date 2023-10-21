@@ -23,7 +23,7 @@ const {
     });
   });
 
-  decribe('getPurchaseById', () => {
+  describe('getPurchaseById', () => {
     it("should return an array of all purchases with id and name", () => {
         const purchases = getAllPurchases()
         expect(purchases).toEqual(expect.arrayContaining([expect.objectContaining({ id: expect.any(String), name: expect.any(String)})]))
@@ -31,4 +31,17 @@ const {
     })
   })
 
+  describe("getPurchaseById", () => {
+    it("should return the purchase with the given ID", () => {
+      const purchase = createPurchase("Test Item", 10.0, 1.5);
+      const foundPurchase = getPurchaseById(purchase[0].id);
+      expect(foundPurchase).toEqual(purchase[0]);
+    });
   
+    it("should return null if the purchase with the given ID does not exist", () => {
+      const foundPurchase = getPurchaseById("nonexistent-id");
+      expect(foundPurchase).toBeNull();
+    });
+  });
+  
+

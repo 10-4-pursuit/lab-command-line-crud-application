@@ -7,7 +7,9 @@ const inform = console.log
 function createPurchase(name, amount, donation) {
     const id = nanoid(10)
     const roundedDonation = parseFloat(donation).toFixed(2)
-    const purchase = { id, name, amount, donation: roundedDonation}
+    const purchase = { id, name, amount, donation: roundedDonation } 
+    purchases.push(purchase)
+    return purchases
 
 }
 
@@ -21,7 +23,7 @@ function getPurchaseById(id) {
 }
 
 function updatePurchase(id, name, amount, donation) {
-    const purchase = purchase.find((purch) => purch.id === id)
+    const purchase = purchases.find((purch) => purch.id === id)
     if (purchase) {
         purchase.name = name || purchase.name
         purchase.amount = amount || purchase.amount
@@ -38,4 +40,9 @@ function deletePurchase(id) {
         return true
     }
     return false
+}
+
+function calculateTotalDonation() {
+    const totalDonation = purchases.reduce(( total, purchase) => total + parseFloat(purchase.donation), 0)
+    return totalDonation.toFixed(2)
 }

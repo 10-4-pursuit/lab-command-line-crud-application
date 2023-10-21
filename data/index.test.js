@@ -15,3 +15,20 @@ const {
       ]);
     });
   });
+
+  describe("getAllPurchases", () => {
+    it("should return an array of all purchases with id and name", () => {
+      const purchases = getAllPurchases();
+      expect(purchases).toEqual(expect.arrayContaining([expect.objectContaining({ id: expect.any(String), name: expect.any(String) })]));
+    });
+  });
+
+  decribe('getPurchaseById', () => {
+    it("should return an array of all purchases with id and name", () => {
+        const purchases = getAllPurchases()
+        expect(purchases).toEqual(expect.arrayContaining([expect.objectContaining({ id: expect.any(String), name: expect.any(String)})]))
+
+    })
+  })
+
+  

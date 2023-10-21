@@ -20,3 +20,13 @@ function getPurchaseById(id) {
     return purchases.find((purchase) => purchase.id === id)
 }
 
+function updatePurchase(id, name, amount, donation) {
+    const purchase = purchase.find((purch) => purch.id === id)
+    if (purchase) {
+        purchase.name = name || purchase.name
+        purchase.amount = amount || purchase.amount
+        purchase.donation = parseFloat(donation).toFixed(2) || purchase.donation
+        return purchase
+    }
+    return null
+}

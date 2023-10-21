@@ -54,3 +54,12 @@ function displayPurchase(purchase) {
     inform(`Amount: $${purchase.amount}`);
     inform(`Donation: $${purchase.donation}`);
 }
+
+function displayAllPurchases() {
+    inform(chalk.bold("All Purchases:"))
+    purchases.forEach((purchase) => inform(`ID: ${purchase.id}, Name: ${purchase.name}`))
+}
+
+
+displayAllPurchases()
+inform("\nTotal Donation Amount: $" + calculateTotalDonation())

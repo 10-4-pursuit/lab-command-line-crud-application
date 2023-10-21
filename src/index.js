@@ -30,3 +30,12 @@ function updatePurchase(id, name, amount, donation) {
     }
     return null
 }
+
+function deletePurchase(id) {
+    const index = purchases.findIndex((purch) => purch.id === id)
+    if(index !== -1) {
+        purchases.splice(index, 1)
+        return true
+    }
+    return false
+}

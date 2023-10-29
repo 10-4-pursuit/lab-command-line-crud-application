@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "user-app",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "erimed",
   "license": "ISC",
   "dependencies": {
@@ -14,5 +11,14 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "jest",
+    "index": "node index.js index",
+    "create": "node index.js create",
+    "show": "node index.js show",
+    "update": "node index.js update",
+    "destroy": "node index.js delete",
+    "score": "node index.js score"
   }
 }

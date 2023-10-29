@@ -1,5 +1,5 @@
-const chalk = require("chalk")
-const nanoid = require("nanoid")
+const chalk = require("chalk");
+const { nanoid } = require("nanoid");
 
 const purchases = []
 const inform = console.log
@@ -33,6 +33,7 @@ function updatePurchase(id, name, amount, donation) {
     return null
 }
 
+
 function deletePurchase(id) {
     const index = purchases.findIndex((purch) => purch.id === id)
     if(index !== -1) {
@@ -43,23 +44,47 @@ function deletePurchase(id) {
 }
 
 function calculateTotalDonation() {
-    const totalDonation = purchases.reduce(( total, purchase) => total + parseFloat(purchase.donation), 0)
-    return totalDonation.toFixed(2)
+    if (purchases.length === 0) {
+        return "0.00"; // Return 0 if there are no purchases
+    }
+
+    const totalDonation = purchases.reduce((total, purchase) => {
+        const donation = parseFloat(purchase.donation);
+        return isNaN(donation) ? total : total + donation;
+    }, 0);
+
+    return totalDonation.toFixed(2);
 }
 
+
 function displayPurchase(purchase) {
-    inform(chalk.bold("Purchase Details:"))
-    inform(`ID: ${purchase.id}`);
-    inform(`Name: ${purchase.name}`);
-    inform(`Amount: $${purchase.amount}`);
-    inform(`Donation: $${purchase.donation}`);
+    if (purchase) {
+        inform(chalk.bold("Purchase Details:"))
+        inform(`ID: ${purchase.id}`);
+        inform(`Name: ${purchase.name}`);
+        inform(`Amount: $${purchase.amount}`);
+        inform(`Donation: $${purchase.donation}`);
+    } else {
+        inform("No purchase found.");
+    }
 }
 
 function displayAllPurchases() {
     inform(chalk.bold("All Purchases:"))
-    purchases.forEach((purchase) => inform(`ID: ${purchase.id}, Name: ${purchase.name}`))
+    purchases.forEach((purchase) => displayPurchase(purchase));
 }
+
 
 
 displayAllPurchases()
 inform("\nTotal Donation Amount: $" + calculateTotalDonation())
+displayPurchase()
+
+
+module.exports = { createPurchase,
+    getAllPurchases,
+    getPurchaseById,
+    updatePurchase,
+    deletePurchase,
+    calculateTotalDonation,
+}

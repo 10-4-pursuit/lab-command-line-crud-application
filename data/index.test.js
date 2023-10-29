@@ -1,3 +1,5 @@
+
+
 const {
     createPurchase,
     getAllPurchases,
@@ -5,7 +7,7 @@ const {
     updatePurchase,
     deletePurchase,
     calculateTotalDonation,
-  } = require("./your-module-name")
+  } = require("../src/index")
   
   describe("createPurchase", () => {
     it("should create a purchase and return it", () => {
@@ -63,5 +65,19 @@ const {
       const result = deletePurchase("nonexistent-id");
       expect(result).toBe(false);
     });
-  });
+  })
 
+  
+  describe("calculateTotalDonation", () => {
+    it("should calculate the total donation amount correctly", () => {
+      createPurchase("Item 1", 10.5, 1.25);
+      createPurchase("Item 2", 15.75, 2.5);
+      const totalDonation = calculateTotalDonation();
+      expect(totalDonation).toBe("3.75");
+    });
+  
+    it("should return '0.00' if there are no purchases", () => {
+      const totalDonation = calculateTotalDonation();
+      expect(totalDonation).toBe("0.00");
+    });
+  });

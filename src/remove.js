@@ -1,6 +1,7 @@
 //user can remove a product
 
 const { purchases } = require("../data/products");
+const chalk = require("chalk");
 
 
 function remove (products, productID){

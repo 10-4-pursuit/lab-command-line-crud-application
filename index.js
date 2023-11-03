@@ -1,5 +1,7 @@
 const fs = require("fs");
 
+const chalk = require("chalk");
+
 // logs a message to the console
 const inform = console.log;
 
@@ -19,7 +21,10 @@ const { showPurchasesIDName } = require("./src/indexID");
 const { revisePurchase } = require("./src/update");
 
 //imported function to remove a purchase
-const { remove } = require("./src/remove")
+const { remove } = require("./src/remove");
+
+//imported function to add all donations
+const { totalDonations } = require("./src/total");
 
 //this function is responsible or reading the purchases from the JSON file, performing the requested action on the purchases, and then writing the updated purchases back to the JSON file
 function run() {
@@ -51,7 +56,7 @@ function run() {
       inform(action, updatedPurchases);
       break;
     case "show":
-      const purchasesWithFullDetails = showPurchase(products,product);
+      const purchasesWithFullDetails = showPurchase(products, product);
       inform(action, purchasesWithFullDetails);
       break;
     case "update":
@@ -62,10 +67,15 @@ function run() {
     case "remove":
       updatedPurchases = remove(products, product);
       writeToFile = true;
-      inform(action,"Product successfully removed from purchases", updatedPurchases);
+      inform(
+        action,
+        chalk.red("Product successfully removed from purchases"),
+        updatedPurchases
+      );
       break;
     case "total":
-      inform(action, products);
+      const total = totalDonations(products)
+      inform(action, total);
       break;
     default:
       inform("There was an error.");

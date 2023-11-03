@@ -55,9 +55,9 @@ function run() {
       inform(action, purchasesWithFullDetails);
       break;
     case "update":
-      purchaseUp = revisePurchase(products, name, process.argv[4]);
+      updatedPurchases = revisePurchase(products, product, process.argv[4]);
       writeToFile = true;
-      inform(action, purchaseUp);
+      inform(action, updatedPurchases);
       break;
     case "remove":
       updatedPurchases = remove(products, product);

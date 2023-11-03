@@ -8,13 +8,16 @@ const { purchases } = require("../data/products");
 
 
 
-function revisePurchase(purchases, name, newName) {
+function revisePurchase(purchases, productID, updatedProduct) {
 
-    const purchase = purchases.find((purch) => purch.name === name);
-    if (purchase) {
-        purchase.name = newName;
+    const index = purchases.findIndex((product) => product.id === productID);
+    if (index > -1) {
+        purchases[index].id = productID;
+        purchases[index].name = updatedProduct;
+        console.log("Product has been successfully updated");
         return purchases;
     } else {
+        console.log("Product not found. No action taken")
 return purchases;
     }
 }

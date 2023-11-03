@@ -10,10 +10,12 @@ const { purchases } = require("../data/products");
 //   { id: "dMZB", name: "bandana", amount: "$365.00", donate: "$1.00" },
 // ];
 
-function showPurchase(purchases) {
+function showPurchase(purchases, productID ) {
   // return testPurchases[0].name
+    const product = purchases.find((product) => product.id === productID);
+    return product.id + " " + product.name + " " + product.amount + " " + product.amountDonate;
 
-  return purchases;
+ 
 }
 
 module.exports = { showPurchase };

@@ -48,7 +48,7 @@ function run() {
       inform(action, updatedPurchases);
       break;
     case "show":
-      const purchasesWithFullDetails = showPurchase(products);
+      const purchasesWithFullDetails = showPurchase(products,product);
       inform(action, purchasesWithFullDetails);
       break;
     case "update":

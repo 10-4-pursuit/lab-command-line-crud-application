@@ -18,6 +18,9 @@ const { showPurchasesIDName } = require("./src/indexID");
 //imported function to update a purchase
 const { revisePurchase } = require("./src/update");
 
+//imported function to remove a purchase
+const { remove } = require("./src/remove")
+
 //this function is responsible or reading the purchases from the JSON file, performing the requested action on the purchases, and then writing the updated purchases back to the JSON file
 function run() {
   let writeToFile = false;
@@ -56,8 +59,10 @@ function run() {
       writeToFile = true;
       inform(action, purchaseUp);
       break;
-    case "delete":
-      inform(action, products);
+    case "remove":
+      updatedPurchases = remove(products, product);
+      writeToFile = true;
+      inform(action,"Product successfully removed from purchases", updatedPurchases);
       break;
     case "total":
       inform(action, products);

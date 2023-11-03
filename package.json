@@ -9,7 +9,7 @@
     "create": "node index.js create",
     "show": "node index.js show",
     "update": "node index.js update",
-    "delete": "node index.js delete",
+    "remove": "node index.js remove",
     "total": "node index.js total"
   },
   "keywords": [],

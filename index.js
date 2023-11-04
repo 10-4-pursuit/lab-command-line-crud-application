@@ -53,7 +53,7 @@ function run() {
         donateAmount
       );
       writeToFile = true;
-      inform(action, updatedPurchases);
+      inform(action, chalk.bgGreenBright("Thank you. This is what you bought:"), updatedPurchases);
       break;
     case "show":
       const purchasesWithFullDetails = showPurchase(products, product);

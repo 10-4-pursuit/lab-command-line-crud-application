@@ -1,0 +1,65 @@
+[
+  {
+    "id": "H6R4a",
+    "name": "I Saw the Devil",
+    "genre": "Action",
+    "priceInCents": 6464,
+    "inStock": "14"
+  },
+  {
+    "id": "c4Wex",
+    "name": "Shutter Island",
+    "genre": "Horror",
+    "priceInCents": 5838,
+    "inStock": "18"
+  },
+  {
+    "id": "WiXQB",
+    "name": "Lord of the Rings Trilogy",
+    "genre": "Horror",
+    "priceInCents": 3730,
+    "inStock": "5"
+  },
+  {
+    "id": "7NKxc",
+    "name": "Interstellar",
+    "genre": "Psychological Thriller",
+    "priceInCents": 2095,
+    "inStock": "16"
+  },
+  {
+    "id": "jmG6g",
+    "name": "Spider-Man 2",
+    "genre": "Action",
+    "priceInCents": 4558,
+    "inStock": "0"
+  },
+  {
+    "id": "F_fhE",
+    "name": "Matrix Trilogy",
+    "genre": "Horror",
+    "priceInCents": 8453,
+    "inStock": "11"
+  },
+  {
+    "id": "QuJrr",
+    "name": "The Cabin in the Woods",
+    "genre": "Psychological Thriller",
+    "priceInCents": 2979,
+    "inStock": "15"
+  },
+  {
+    "id": "6rR5Z",
+    "name": "Matrix Trilogy",
+    "genre": "Psychological Thriller",
+    "priceInCents": 3046,
+    "inStock": "6"
+  },
+  {
+    "id": "hbf7F",
+    "name": "Matrix",
+    "genre": "Sci-fi",
+    "priceInCents": "9000",
+    "inStock": "10"
+  }
+]

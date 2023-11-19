@@ -1,0 +1,29 @@
+const PurchaseController = require('./controllers/purchaseController');
+const { formatDonationTotal } = require('./utils/donationUtils');
+
+const purchaseController = new PurchaseController();
+
+// Creating test purchases
+const purchase1 = purchaseController.createPurchase('Laptop', 999.99);
+const purchase2 = purchaseController.createPurchase('Headphones', 149.95);
+const purchase3 = purchaseController.createPurchase('Coffee Maker', 49.99);
+
+// Displaying purchases
+console.log('Initial Purchases:');
+purchaseController.indexPurchases();
+console.log(`Total Donation: ${formatDonationTotal(purchaseController.getTotalDonation())}`);
+
+// Updating a purchase
+purchaseController.updatePurchase(purchase1.id, 'High-Performance Laptop', 1299.99);
+
+// Deleting a purchase
+purchaseController.deletePurchase(purchase2.id);
+
+// Displaying updated purchases
+console.log('\nUpdated Purchases:');
+purchaseController.indexPurchases();
+console.log(`Total Donation: ${formatDonationTotal(purchaseController.getTotalDonation())}`);
+
+// Showing details of a purchase
+console.log('\nDetails of a Purchase:');
+purchaseController.showPurchase(purchase1.id);
